@@ -21,6 +21,14 @@
   }
 }
 
+@media (max-width: 525px ) {
+  .header {
+    flex-direction: column;
+  }
+}
+
+
+
 .h-right {
   display: flex;
   flex-direction: row;

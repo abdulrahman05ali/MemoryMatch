@@ -23,10 +23,19 @@
   padding-top: 20px;
 }
 
+.bmc-small-button {
+  background-color: rgba(255,221,0,255);
+  height: 57px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+}
+
 .b-right{
   display: flex;
   flex-direction: column;
-  padding-top: 12px;
+  padding-top: 10px;
   gap:2px;
 }
 
@@ -41,7 +50,7 @@
   text-decoration: underline;
 }
 
-.follow {
+.x-button {
   height: 57px;
   border: none;
   border-radius: 10px;
@@ -54,3 +63,12 @@
   padding-top: 3px;
 }
 
+@media (max-width: 525px) {
+  .BMC {
+    display: none;
+  }
+
+  .bmc-small-button {
+    display: block;
+  }
+}
