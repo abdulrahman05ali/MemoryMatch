@@ -63,7 +63,7 @@
   padding-top: 3px;
 }
 
-@media (max-width: 525px) {
+@media (max-width: 560px) {
   .BMC {
     display: none;
   }
