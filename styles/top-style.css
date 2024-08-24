@@ -23,7 +23,6 @@
 .h-right {
   display: flex;
   flex-direction: row;
-  gap: 20px;
   align-items: center;
 }
 
@@ -48,6 +47,7 @@
 
 .memory, .match {
   height: 30px;
+  cursor: pointer;
 }
 
 
