@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 70%;
-  margin:auto;
+  margin: auto;
   padding-top:20px;
   padding-bottom: 10px;
   transition: width 0.5s ease;
@@ -19,7 +19,8 @@
 @media (max-width: 650px ) {
   .header {
     width: 95%;
-    margin: 7px auto 0 auto;
+    margin: auto;
+    padding-top: 10px;
   }
 }
 
