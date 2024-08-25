@@ -1,0 +1,23 @@
+.middle{
+  display: flex;
+  flex-direction: row;
+  width: 80%;
+  border: 1px solid black;
+  margin: auto;
+  margin-top: 30px;
+  justify-content: center;
+  gap: 30px;
+}
+
+.gameplay {
+  border: 1px solid red;
+  aspect-ratio: 1.9 / 1;
+  width: 1200px;
+  min-width: 700px;
+  height: auto;
+}
+
+.leaderboard {
+  border: 1px solid blue;
+  width: 400px;
+}

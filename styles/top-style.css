@@ -5,7 +5,9 @@
   width: 70%;
   margin:auto;
   padding-top:20px;
+  padding-bottom: 10px;
   transition: width 0.5s ease;
+  border-bottom: 1px gainsboro solid;
 }
 
 @media (max-width: 1400px) {
@@ -21,11 +23,11 @@
   }
 }
 
-@media (max-width: 560px ) {
+/* @media (max-width: 560px ) {
   .header {
     flex-direction: column;
   }
-}
+} */
 
 
 
