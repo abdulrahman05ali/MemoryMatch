@@ -4,7 +4,7 @@
   justify-content: space-between;
   width: 70%;
   margin: auto;
-  padding-top:20px;
+  padding-top:17px;
   padding-bottom: 10px;
   transition: width 0.5s ease;
   border-bottom: 1px gainsboro solid;
@@ -36,18 +36,69 @@
   display: flex;
   flex-direction: row;
   align-items: center;
+  position: relative;
+}
+
+.h-div {
+  margin-top: 10px; 
+  margin-right: 15px;
+  border-radius: 100px;
+  padding: 8px 9px 5px 9px;
+  cursor: pointer;
+}
+
+.h-div:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.dropdown {
+  position: absolute;
+  bottom: -87px;
+  left: -90px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(240, 240, 240);
+  text-wrap: nowrap;
+  text-align: center;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.js-dropdown {
+  display: none;
+} 
+
+.drop {
+  cursor: pointer;
+  padding: 3px 7px;
+}
+
+.d-top {
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+}
+
+.d-bottom {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+
+
+.drop:hover {
+  background-color: rgb(230,230,230);
 }
 
 .h-left {
   display: flex;
   flex-direction: row;
-  gap: 5px;
+  gap: 7px;
   align-items: center;
 }
 
 .logo {
-  width: 80px;
-  height: 80px;
+  width: 75px;
+  height: 75px;
   border-radius: 20px;
   cursor: pointer;
 }
@@ -58,7 +109,7 @@
 }
 
 .memory, .match {
-  height: 30px;
+  height: 27px;
   cursor: pointer;
 }
 
