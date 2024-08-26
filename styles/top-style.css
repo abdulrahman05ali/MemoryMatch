@@ -53,14 +53,14 @@
 
 .dropdown {
   position: absolute;
-  bottom: -87px;
+  bottom: -95px;
   left: -90px;
   display: flex;
   flex-direction: column;
   background-color: rgb(240, 240, 240);
   text-wrap: nowrap;
   text-align: center;
-  border-radius: 6px;
+  border-radius: 10px;
   font-weight: 500;
   opacity: 1;
   visibility: visible;
@@ -80,11 +80,13 @@
 .d-top {
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
+  padding-top: 6px;
 }
 
 .d-bottom {
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  padding-bottom: 7px;
 }
 
 
