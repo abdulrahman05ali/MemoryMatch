@@ -8,6 +8,6 @@ moreButton.addEventListener('click',() => {
     isClicked = true;
   } else {
     dropdown.classList.add('js-dropdown');
-    isClicked = false
+    isClicked = false;
   }
 })

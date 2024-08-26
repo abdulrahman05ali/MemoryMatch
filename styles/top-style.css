@@ -62,10 +62,14 @@
   text-align: center;
   border-radius: 6px;
   font-weight: 500;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.2s ease;
 }
 
-.js-dropdown {
-  display: none;
+ .js-dropdown {
+  opacity: 0;
+  visibility: hidden;
 } 
 
 .drop {
