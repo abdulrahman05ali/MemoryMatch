@@ -26,5 +26,5 @@ playButton.addEventListener('click',() => {
     </div> `;
 
     content.classList.remove('hidden');
-  },500)
+  },400)
 }) 
