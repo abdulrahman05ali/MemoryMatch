@@ -55,12 +55,35 @@
 }
 
 .image-1 {
-  width: 100%;
+  width: 80%;
   margin: 0 auto;
+  padding-top: 50px;
 }
 
 
 .visuals-2 img {
   width: 100%; 
   height: auto; 
+  padding-bottom: 20px;
+}
+
+.control-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+
+.control-buttons img {
+  width: 16%;
+  height: auto;
+  transition: width 0.5s ease;
+  cursor: pointer;
+}
+
+@media (max-width: 700px ) {
+  .control-buttons img {
+    width: 22%;
+  }
 }

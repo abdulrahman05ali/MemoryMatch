@@ -19,10 +19,14 @@ playButton.addEventListener('click',() => {
 
   setTimeout(() => {
     content.innerHTML = 
-    ` <div class="visuals-2">
-        <div class="image-1">
-          <img src="images/Instructions.png">
-        </div>
+    `<div class="visuals-2">
+      <div class="image-1">
+        <img src="https://fontmeme.com/permalink/240829/7ffe2442ba9c7f5068c27c90678296c5.png">
+      </div>
+      <div class="control-buttons">
+          <img src="images/backButton.png">
+          <img src="images/playbutton.png">
+      </div>
     </div> `;
 
     content.classList.remove('hidden');
