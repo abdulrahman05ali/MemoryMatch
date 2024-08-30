@@ -12,10 +12,10 @@ moreButton.addEventListener('click',() => {
   }
 })
 
-const playButton = document.querySelector('.playButton');
 const content = document.querySelector('.gameplay-contents');
 
 function setOriginalPlay() {
+  const playButton = document.querySelector('.playButton');
   playButton.addEventListener('click',() => {
     content.classList.add('hidden');
     
