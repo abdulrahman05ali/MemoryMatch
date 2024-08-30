@@ -7,10 +7,13 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  font-family: roboto;
+  font-family: "Jersey 10";
   background-color: rgb(250, 250, 250);
+  -webkit-tap-highlight-color: transparent;
 }
+
 
 .main {
   flex: 1;
 }
+

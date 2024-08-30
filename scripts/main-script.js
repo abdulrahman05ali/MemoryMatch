@@ -13,11 +13,11 @@ moreButton.addEventListener('click',() => {
 })
 
 function setOriginalPlay() {
-const playButton = document.querySelector('.playButton');
-const content = document.querySelector('.gameplay-contents');
+  const playButton = document.querySelector('.playButton');
+  const content = document.querySelector('.gameplay-contents');
   playButton.addEventListener('click',() => {
     content.classList.add('hidden');
-  
+    
     setTimeout(() => {
       content.innerHTML = 
       `<div class="visuals-2">
@@ -29,21 +29,44 @@ const content = document.querySelector('.gameplay-contents');
             <img class="newplay" src="images/playbutton.png">
         </div>
       </div> `;
-  
+
       content.classList.remove('hidden');
-  
+
+      const newPlay = document.querySelector('.newplay');
+      newPlay.addEventListener('click', () => {
+        content.innerHTML =
+        `<div class="visuals-3">3</div>`
+
+
+        let timer = 2
+
+        const countdownThree = document.querySelector('.visuals-3')
+
+        let intervalId;
+
+       intervalId = setInterval(() => {
+        countdownThree.innerHTML = timer;
+        timer--;
+
+        if (timer < 0) {
+          clearInterval(intervalId)
+          countdownThree.innerHTML = 'game'
+        }
+       },1000)
+      })
+
       const backButton = document.querySelector('.back');
       backButton.addEventListener('click',() => {
         content.classList.add('hidden');
-  
+
         setTimeout(() => {
           content.innerHTML = 
           `<div class="visuals-1">
             <img src="images/play.png" class="playButton"> 
-         </div>`;
-         
-         content.classList.remove('hidden')
-         setOriginalPlay();
+          </div>`;
+          
+          content.classList.remove('hidden')
+          setOriginalPlay();
         },400)
       })
     },400)
