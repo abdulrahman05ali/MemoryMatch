@@ -80,7 +80,7 @@ function memoriseSection() {
 
     if (!timer2) {
       clearInterval(timerInterval);
-      timer2 = 'play'
+      timer2 = 'play' // add function here that adds class list hidden and removes when you tap tile
     } 
   
     content.innerHTML = 
@@ -91,9 +91,22 @@ function memoriseSection() {
         </div>
       </div>
       <div class="bottom-gameplay">
-        
+        <div class="tiles">
+          <div></div> 
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
-    </div>`; 
+    </div>`;  // generate DIVs with JS
     timer2--;
  },1000)
 }

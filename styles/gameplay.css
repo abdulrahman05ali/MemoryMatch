@@ -55,14 +55,14 @@
 }
 
 .image-1 {
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   padding-top: 50px;
 }
 
 
 .visuals-2 img {
-  width: 100%; 
+  width: 100%;
   height: auto; 
   padding-bottom: 20px;
 }
@@ -140,28 +140,41 @@
   margin: auto;
   margin-top: 10px;
   display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   justify-content: center;
   transition: width 0.5s ease, gap 0.5s ease, margin-top 0.5s ease;
   
 }
 
-.tiles div {
+.tiles div{
   border-radius: 20px;
   background-color: rgb(50, 50, 80);
-  box-shadow: 5px 5px 5px rgba(0,0,0,0.25);
+  box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
+  cursor: pointer;
+  position: relative;
+}
+
+.tiles img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center
 }
 
 @media (max-width: 700px ) {
   .tiles {
     width: 70%;
+    gap: 6px;
     margin-top: 7px;
   }
 }
 
 @media (max-width: 540px ) {
   .tiles {
-    width: 88%;
+    width: 97%;
   }
 }
