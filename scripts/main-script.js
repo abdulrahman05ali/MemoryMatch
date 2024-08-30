@@ -35,18 +35,15 @@ function setOriginalPlay() {
 
       const newPlay = document.querySelector('.newplay');
       newPlay.addEventListener('click', () => {
-        content.innerHTML =
-        `<div class="visuals-3">3</div>`
-
-
-        let timer = 2
-
-        const countdownThree = document.querySelector('.visuals-3')
-
+        let timer = 3
         let intervalId;
 
+        content.innerHTML = `<div class="visuals-3">${timer}</div>`;
+        timer--;
+
        intervalId = setInterval(() => {
-        countdownThree.innerHTML = timer;
+        content.innerHTML =
+        `<div class="visuals-3">${timer}</div>`
         timer--;
 
         if (timer === 0) {
@@ -75,19 +72,17 @@ function setOriginalPlay() {
 }
 
 function memoriseSection() {
-  let timer2 = 6
+  let timer2 = 5
 
   let timerInterval;
 
   timerInterval = setInterval(() => {
-    timer2--;
 
-    if (timer2 === 0) {
+    if (!timer2) {
       clearInterval(timerInterval);
       timer2 = 'play'
     } 
   
-    
     content.innerHTML = 
     `<div class="visuals-4">
       <div class="top-gameplay">
@@ -99,6 +94,7 @@ function memoriseSection() {
         
       </div>
     </div>`; 
+    timer2--;
  },1000)
 }
 
