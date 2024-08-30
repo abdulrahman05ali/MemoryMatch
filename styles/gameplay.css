@@ -104,3 +104,32 @@
     font-size: 31vw;
   }
 }
+
+.visuals-4 {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.top-gameplay {
+  height: 11%;
+  background-color: rgb(70, 70, 100);
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  padding-left: 10px;
+}
+
+.flex-container {
+  display: flex;
+  align-items: center;
+  height: 100%; 
+  color: white;
+  font-size: clamp(35px, 3vw, 55px);
+}
+
+.bottom-gameplay{
+  flex: 1;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

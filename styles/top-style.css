@@ -53,8 +53,8 @@
 
 .dropdown {
   position: absolute;
-  bottom: -95px;
-  left: -90px;
+  bottom: -110px;
+  left: -75px;
   display: flex;
   flex-direction: column;
   background-color: rgb(240, 240, 240);

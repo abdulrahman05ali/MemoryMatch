@@ -12,9 +12,10 @@ moreButton.addEventListener('click',() => {
   }
 })
 
+const playButton = document.querySelector('.playButton');
+const content = document.querySelector('.gameplay-contents');
+
 function setOriginalPlay() {
-  const playButton = document.querySelector('.playButton');
-  const content = document.querySelector('.gameplay-contents');
   playButton.addEventListener('click',() => {
     content.classList.add('hidden');
     
@@ -48,9 +49,9 @@ function setOriginalPlay() {
         countdownThree.innerHTML = timer;
         timer--;
 
-        if (timer < 0) {
+        if (timer === 0) {
           clearInterval(intervalId)
-          countdownThree.innerHTML = 'game'
+          memoriseSection(); 
         }
        },1000)
       })
@@ -72,5 +73,35 @@ function setOriginalPlay() {
     },400)
   }) 
 }
+
+function memoriseSection() {
+  let timer2 = 6
+
+  let timerInterval;
+
+  timerInterval = setInterval(() => {
+    timer2--;
+
+    if (timer2 === 0) {
+      clearInterval(timerInterval);
+      timer2 = 'play'
+    } 
+  
+    
+    content.innerHTML = 
+    `<div class="visuals-4">
+      <div class="top-gameplay">
+        <div class="flex-container">
+          time remaining: ${timer2}
+        </div>
+      </div>
+      <div class="bottom-gameplay">
+        
+      </div>
+    </div>`; 
+ },1000)
+}
+
+
 
 setOriginalPlay();
