@@ -1,3 +1,5 @@
+import { shuffleIcons } from './game.js';
+
 let isClicked = false; 
 
 const moreButton = document.querySelector('.h-div');
@@ -76,6 +78,8 @@ function memoriseSection() {
 
   let timerInterval;
 
+  const randomise = shuffleIcons();
+
   timerInterval = setInterval(() => {
 
     if (!timer2) {
@@ -83,34 +87,15 @@ function memoriseSection() {
       timer2 = 'play' // add function here that adds class list hidden and removes when you tap tile
     } 
   
-    content.innerHTML = // function that randomises the icons and generates the html
+    content.innerHTML = 
     `<div class="visuals-4">
       <div class="top-gameplay">
         <div class="flex-container">
           time remaining: ${timer2}
         </div>
-      </div>
-      <div class="bottom-gameplay">
-        <div class="tiles">
-          <div></div> 
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-      </div>
-    </div>`; 
+      </div>` + randomise;
     timer2--;
  },1000)
 }
-
-
 
 setOriginalPlay();

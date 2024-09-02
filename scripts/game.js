@@ -1,11 +1,30 @@
-import { icons } from "./icons";
+import { icons } from "./icons.js";
 
-shuffleIcons(
-  // shuffle icons array
+export function shuffleIcons(timer2) {
+  for (let i = icons.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i  + 1));
+    [icons[i], icons[j]] = [icons[j], icons[i]]; 
+  }
 
-  // add to html 
+  let randomHTML = `
+      <div class="bottom-gameplay">
+        <div class="tiles">`
 
-  // complete html 
+  icons.forEach((icon) => {
+    randomHTML += `
+    <div>
+      <img src="images/${icon}.png">
+    </div>
+    `
+  })
 
-  // return html
-)
+  const finalHTML = randomHTML + 
+  `
+        </div>
+      </div>
+    </div>`
+
+
+    return finalHTML;
+}
+ 
