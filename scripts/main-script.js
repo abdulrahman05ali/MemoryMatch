@@ -1,4 +1,5 @@
-import { shuffleIcons } from './game.js';
+import { shuffleIcons, gameMechanic } from './game.js';
+import { icons } from './icons.js';
 
 let isClicked = false; 
 
@@ -84,7 +85,8 @@ function memoriseSection() {
 
     if (!timer2) {
       clearInterval(timerInterval);
-      timer2 = 'play' // add function here that adds class list hidden and removes when you tap tile
+      timer2 = 'play' // remove this and add milli second timer going up and move into the function
+      gameMechanic();
     } 
   
     content.innerHTML = 

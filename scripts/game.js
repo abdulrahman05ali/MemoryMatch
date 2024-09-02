@@ -13,7 +13,7 @@ export function shuffleIcons(timer2) {
   icons.forEach((icon) => {
     randomHTML += `
     <div>
-      <img src="images/${icon}.png">
+      <img class="iconimage" src="images/${icon}.png">
     </div>
     `
   })
@@ -28,3 +28,24 @@ export function shuffleIcons(timer2) {
     return finalHTML;
 }
  
+
+export function gameMechanic() {
+  const iconimg = document.querySelectorAll('.iconimage');
+  iconimg.forEach((img) => {
+    img.addEventListener('click',() => {
+      console.log('clicked')
+    })
+  })
+}
+
+// give them class
+
+// for each 
+
+// give them hidden css 
+
+// when they tap remove the hidden 
+
+// when 2 things are tapped check if it is the same
+
+// if same remove permantely hidden and remove from icons for icons clone if not put it back

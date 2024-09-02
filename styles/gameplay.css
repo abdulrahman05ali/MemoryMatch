@@ -151,7 +151,6 @@
   border-radius: 20px;
   background-color: rgb(50, 50, 80);
   box-shadow: 5px 5px 5px rgba(0,0,0,0.15);
-  cursor: pointer;
   position: relative;
 }
 
@@ -164,6 +163,7 @@
   object-fit:cover;
   object-position: center;
   transform: translate(-50%, -50%);
+  cursor: pointer;
 }
 
 @media (max-width: 700px ) {
