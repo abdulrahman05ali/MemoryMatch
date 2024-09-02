@@ -83,7 +83,7 @@ function memoriseSection() {
       timer2 = 'play' // add function here that adds class list hidden and removes when you tap tile
     } 
   
-    content.innerHTML = 
+    content.innerHTML = // function that randomises the icons and generates the html
     `<div class="visuals-4">
       <div class="top-gameplay">
         <div class="flex-container">
@@ -106,7 +106,7 @@ function memoriseSection() {
           <div></div>
         </div>
       </div>
-    </div>`;  // generate DIVs with JS
+    </div>`; 
     timer2--;
  },1000)
 }

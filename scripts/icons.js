@@ -1,0 +1,1 @@
+export const icons = ['football','football','key','key','money','money','star','star','apple','apple','bolt','bolt']
