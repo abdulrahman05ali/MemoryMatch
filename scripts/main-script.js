@@ -41,12 +41,13 @@ function setOriginalPlay() {
         let intervalId;
 
         content.innerHTML = `<div class="visuals-3">${timer}</div>`;
-        timer--;
+        
 
        intervalId = setInterval(() => {
+        timer--;
         content.innerHTML =
         `<div class="visuals-3">${timer}</div>`
-        timer--;
+        
 
         if (timer === 0) {
           clearInterval(intervalId)

@@ -12,8 +12,8 @@ export function shuffleIcons(timer2) {
 
   icons.forEach((icon) => {
     randomHTML += `
-    <div>
-      <img class="iconimage" src="images/${icon}.png">
+    <div class="icontile">
+      <img class="iconimage" src="images/${icon}.png" ondragstart="return false;">
     </div>
     `
   })
@@ -31,15 +31,14 @@ export function shuffleIcons(timer2) {
 
 export function gameMechanic() {
   const iconimg = document.querySelectorAll('.iconimage');
+  const icontile = document.querySelectorAll('.icontile');
   iconimg.forEach((icon) => {
-    icon.addEventListener('click',() => {
-      /// change addEventListener to addclass list with hidden of it. 
+    icon.classList.add('hidden');
+  })
 
-      // when they tap remove the hidden 
-
-      // when 2 things are tapped check if it is the same
-
-      // if same remove permantely hidden and remove from icons for icons clone if not put it back
+  icontile.forEach((tile,index) => {
+    tile.addEventListener('click', ()=> {
+      iconimg[index].classList.remove('hidden');
     })
   })
 }
