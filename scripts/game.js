@@ -31,21 +31,15 @@ export function shuffleIcons(timer2) {
 
 export function gameMechanic() {
   const iconimg = document.querySelectorAll('.iconimage');
-  iconimg.forEach((img) => {
-    img.addEventListener('click',() => {
-      console.log('clicked')
+  iconimg.forEach((icon) => {
+    icon.addEventListener('click',() => {
+      /// change addEventListener to addclass list with hidden of it. 
+
+      // when they tap remove the hidden 
+
+      // when 2 things are tapped check if it is the same
+
+      // if same remove permantely hidden and remove from icons for icons clone if not put it back
     })
   })
 }
-
-// give them class
-
-// for each 
-
-// give them hidden css 
-
-// when they tap remove the hidden 
-
-// when 2 things are tapped check if it is the same
-
-// if same remove permantely hidden and remove from icons for icons clone if not put it back

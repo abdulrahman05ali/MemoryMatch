@@ -1,5 +1,4 @@
 import { shuffleIcons, gameMechanic } from './game.js';
-import { icons } from './icons.js';
 
 let isClicked = false; 
 
@@ -76,27 +75,26 @@ function setOriginalPlay() {
 
 function memoriseSection() {
   let timer2 = 5
-
   let timerInterval;
-
   const randomise = shuffleIcons();
 
-  timerInterval = setInterval(() => {
-
-    if (!timer2) {
-      clearInterval(timerInterval);
-      timer2 = 'play' // remove this and add milli second timer going up and move into the function
-      gameMechanic();
-    } 
-  
-    content.innerHTML = 
+  content.innerHTML = 
     `<div class="visuals-4">
       <div class="top-gameplay">
         <div class="flex-container">
-          time remaining: ${timer2}
+          time remaining:&nbsp;<span id="timer">${timer2}</span>
         </div>
       </div>` + randomise;
+
+  timerInterval = setInterval(() => {
     timer2--;
+    document.getElementById('timer').textContent = timer2;
+
+    if (timer2 === 0) {
+      clearInterval(timerInterval);
+      document.getElementById('timer').textContent = 'play'
+      gameMechanic();
+    }
  },1000)
 }
 
