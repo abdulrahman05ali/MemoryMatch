@@ -37,53 +37,56 @@ export function gameMechanic() {
     icon.classList.add('hidden');
   });
 
-  let clickQueue = []; // Single queue to manage clicks
-  let isProcessing = false; // Single processing flag
+  let clickQueue = []; // Queue to manage clicks
+  let isProcessing = false; // Flag to track if processing is happening
 
   icontile.forEach((tile, index) => {
     tile.addEventListener('click', () => {
-      // If the tile is already matched, or already in the queue, or currently being processed, do nothing
-      if (tile.classList.contains('matched') || isProcessing || clickQueue.some(item => item.tile === tile)) {
+      // Ignore clicks on already matched tiles or tiles being processed
+      if (tile.classList.contains('matched') || clickQueue.some(item => item.tile === tile)) {
         return;
       }
 
       iconimg[index].classList.remove('hidden'); // Reveal the clicked icon
-
-      // Add clicked tile and image details to the queue
       clickQueue.push({ tile, img: iconimg[index], src: iconimg[index].src });
 
-      // If we have a pair, initiate processing
-      if (clickQueue.length === 2 && !isProcessing) { 
+      // Process pairs if there are at least two items in the queue and not currently processing
+      if (!isProcessing) {
         processQueue();
       }
     });
   });
 
   function processQueue() {
+    if (clickQueue.length < 2) {
+      return; // Not enough tiles to process
+    }
+
     isProcessing = true; // Set processing flag to true
 
-    const [firstTile, secondTile] = clickQueue.splice(0, 2); // Get the first two elements
+    const pairs = clickQueue.splice(0, 2); // Get the first two tiles
 
     setTimeout(() => {
-      if (firstTile.src === secondTile.src) {
-        // If both icons match, mark them as matched
-        firstTile.tile.classList.add('matched');
-        secondTile.tile.classList.add('matched');
-      } else {
-        // Otherwise, hide the icons again
-        firstTile.img.classList.add('hidden');
-        secondTile.img.classList.add('hidden');
-      }
+      if (pairs.length === 2) { // Ensure we have two tiles to process
+        const [firstTile, secondTile] = pairs;
 
-      // Clean up clickQueue to prevent stuck tiles
-      clickQueue = clickQueue.filter(item => !item.tile.classList.contains('matched'));
+        if (firstTile.src === secondTile.src) {
+          // If both icons match, mark them as matched
+          firstTile.tile.classList.add('matched');
+          secondTile.tile.classList.add('matched');
+        } else {
+          // Otherwise, hide the icons again
+          firstTile.img.classList.add('hidden');
+          secondTile.img.classList.add('hidden');
+        }
+      }
 
       isProcessing = false; // Reset the processing flag
 
-      // Check if more items are left in the queue
+      // Continue processing any remaining pairs
       if (clickQueue.length >= 2) {
         processQueue(); // Process the next pair
       }
-    }, 500);
+    }, 300); // Short timeout for fast feedback
   }
 }
