@@ -17,3 +17,7 @@ body {
   flex: 1;
 }
 
+img {
+  user-select: none;
+}
+
