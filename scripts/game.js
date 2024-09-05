@@ -35,12 +35,13 @@ export function gameMechanic() {
 
   timerInterval3 = setInterval(() => {
     timer3 += 10;
-    const seconds = (timer3/1000).toFixed(2)
+    const seconds = (timer3/1000).toFixed(2);
     top.innerHTML = `time: ${seconds}`;
 
-    if (Math.abs(seconds - 60.01) < 0.01) {
-      clearInterval(timerInterval3);
-    }
+   if (Math.abs(seconds - 60.01) < 0.01) {
+    clearInterval(timerInterval3);
+    saveScore(timer3)
+   }
   },10);
   let score = 0;
 
@@ -59,7 +60,7 @@ export function gameMechanic() {
     }
   }
 
-  function processMatches(seconds) {
+  function processMatches() {
     while (clickedTiles.length >= 2) {
       const [first, second] = clickedTiles.splice(0, 2);
 
@@ -74,7 +75,7 @@ export function gameMechanic() {
 
       if (score === 6) {
         clearInterval(timerInterval3);
-        // new function
+        saveScore(timer3)
       }
     }
 
@@ -97,4 +98,11 @@ export function gameMechanic() {
       processingTimeout = setTimeout(processMatches, 250);
     });
   });
+}
+
+function saveScore(timer3) {
+  const finalTime = (timer3/1000).toFixed(2);
+  // time saved in finalTime
+  // change page, transition
+  // find way to save score in database
 }
