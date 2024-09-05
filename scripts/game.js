@@ -29,9 +29,23 @@ export function shuffleIcons(timer2) {
 }
 
 export function gameMechanic() {
+  let timer3 = 0;
+  let timerInterval3;
+  const top = document.querySelector('.flex-container');
+
+  timerInterval3 = setInterval(() => {
+    timer3 += 10;
+    const seconds = (timer3/1000).toFixed(2)
+    top.innerHTML = `time: ${seconds}`;
+
+    if (Math.abs(seconds - 60.01) < 0.01) {
+      clearInterval(timerInterval3);
+    }
+  },10);
+  let score = 0;
+
   const iconimg = document.querySelectorAll('.iconimage');
   const icontile = document.querySelectorAll('.icontile');
-
   iconimg.forEach((icon) => {
     icon.classList.add('hidden');
   });
@@ -45,16 +59,22 @@ export function gameMechanic() {
     }
   }
 
-  function processMatches() {
+  function processMatches(seconds) {
     while (clickedTiles.length >= 2) {
       const [first, second] = clickedTiles.splice(0, 2);
 
       if (first.src === second.src) {
         first.tile.classList.add('matched');
         second.tile.classList.add('matched');
+        score++;
       } else {
         resetTile(first.tile, first.img);
         resetTile(second.tile, second.img);
+      }
+
+      if (score === 6) {
+        clearInterval(timerInterval3);
+        // new function
       }
     }
 
@@ -74,7 +94,7 @@ export function gameMechanic() {
         clearTimeout(processingTimeout);
       }
 
-      processingTimeout = setTimeout(processMatches, 300);
+      processingTimeout = setTimeout(processMatches, 250);
     });
   });
 }

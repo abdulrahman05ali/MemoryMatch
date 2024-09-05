@@ -93,7 +93,6 @@ function memoriseSection() {
 
     if (timer2 === 0) {
       clearInterval(timerInterval);
-      document.getElementById('timer').textContent = 'play' // change/remove this
       gameMechanic();
     }
  },1000)
