@@ -102,7 +102,5 @@ export function gameMechanic() {
 
 function saveScore(timer3) {
   const finalTime = (timer3/1000).toFixed(2);
-  // time saved in finalTime
-  // change page, transition
-  // find way to save score in database
+  
 }
