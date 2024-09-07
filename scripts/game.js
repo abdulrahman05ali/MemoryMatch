@@ -102,5 +102,25 @@ export function gameMechanic() {
 
 function saveScore(timer3) {
   const finalTime = (timer3/1000).toFixed(2);
-  
+  const content =  document.querySelector('.gameplay-contents');
+  content.classList.add('hidden');
+
+  setTimeout(()=> {
+    content.innerHTML = 
+    `<div class="visuals-5">
+      <div class="inner-visuals-5">
+        <div class="top-visuals-5">Results</div>
+        <div class="time">Time: ${finalTime} seconds</div>
+        <div class="input-button-container">
+          <input class="input-score" placeholder="Enter your name">
+          <button class="game-button save-score">Save</button>
+        </div>
+        <div class="button-container">
+          <button class="game-button play-again">Play Again</button>
+        </div>
+      </div>
+    </div>`;
+
+      content.classList.remove('hidden');
+  },400)
 }
