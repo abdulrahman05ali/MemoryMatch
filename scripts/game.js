@@ -1,6 +1,92 @@
 import { icons } from "./icons.js";
 
-export function shuffleIcons(timer2) {
+const content = document.querySelector('.gameplay-contents');
+
+function setOriginalPlay() {
+  const playButton = document.querySelector('.playButton');
+  playButton.addEventListener('click',() => {
+    content.classList.add('hidden');
+    
+    setTimeout(() => {
+      content.innerHTML = 
+      `<div class="visuals-2">
+        <div class="image-1">
+          <img src="https://fontmeme.com/permalink/240829/7ffe2442ba9c7f5068c27c90678296c5.png">
+        </div>
+        <div class="control-buttons">
+            <img class="back" src="images/backButton.png">
+            <img class="newplay" src="images/playbutton.png">
+        </div>
+      </div> `;
+
+      content.classList.remove('hidden');
+
+      const newPlay = document.querySelector('.newplay');
+      newPlay.addEventListener('click', () => {
+        let timer = 3
+        let intervalId;
+
+        content.innerHTML = `<div class="visuals-3">${timer}</div>`;
+        
+
+       intervalId = setInterval(() => {
+        timer--;
+        content.innerHTML =
+        `<div class="visuals-3">${timer}</div>`
+        
+
+        if (timer === 0) {
+          clearInterval(intervalId)
+          memoriseSection(); 
+        }
+       },1000)
+      })
+
+      const backButton = document.querySelector('.back');
+      backButton.addEventListener('click',() => {
+        content.classList.add('hidden');
+
+        setTimeout(() => {
+          content.innerHTML = 
+          `<div class="visuals-1">
+            <img src="images/play.png" class="playButton"> 
+          </div>`;
+          
+          content.classList.remove('hidden')
+          setOriginalPlay();
+        },400)
+      })
+    },400)
+  }) 
+}
+
+export { setOriginalPlay };
+
+function memoriseSection() {
+  let timer2 = 5
+  let timerInterval;
+  const randomise = shuffleIcons();
+
+  content.innerHTML = 
+    `<div class="visuals-4">
+      <div class="top-gameplay">
+        <div class="flex-container">
+          time remaining:&nbsp;<span id="timer">${timer2}</span>
+        </div>
+      </div>` + randomise;
+
+  timerInterval = setInterval(() => {
+    timer2--;
+    document.getElementById('timer').textContent = timer2;
+
+    if (timer2 === 0) {
+      clearInterval(timerInterval);
+      gameMechanic();
+    }
+ },1000)
+}
+
+function shuffleIcons(timer2) {
   for (let i = icons.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i  + 1));
     [icons[i], icons[j]] = [icons[j], icons[i]]; 
@@ -28,7 +114,7 @@ export function shuffleIcons(timer2) {
     return finalHTML;
 }
 
-export function gameMechanic() {
+function gameMechanic() {
   let timer3 = 0;
   let timerInterval3;
   const top = document.querySelector('.flex-container');
@@ -102,14 +188,12 @@ export function gameMechanic() {
 
 function saveScore(timer3) {
   const finalTime = (timer3/1000).toFixed(2);
-  const content =  document.querySelector('.gameplay-contents');
   content.classList.add('hidden');
 
   setTimeout(()=> {
     content.innerHTML = 
     `<div class="visuals-5">
       <div class="inner-visuals-5">
-        <div class="top-visuals-5">Results</div>
         <div class="time">Time: ${finalTime} seconds</div>
         <div class="input-button-container">
           <input class="input-score" placeholder="Enter your name">
@@ -120,6 +204,19 @@ function saveScore(timer3) {
         </div>
       </div>
     </div>`;
+
+    const playAgain = document.querySelector('.play-again');
+    playAgain.addEventListener('click', () => {
+      content.classList.add('hidden');
+      setTimeout(() => {
+        content.innerHTML = 
+        `<div class="visuals-1">
+          <img src="images/play.png" class="playButton"> 
+        </div>`;
+        content.classList.remove('hidden');
+        setOriginalPlay();
+      }, 400);
+  })
 
       content.classList.remove('hidden');
   },400)
