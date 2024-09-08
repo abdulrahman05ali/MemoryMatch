@@ -12,6 +12,10 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
+button {
+  font-family: "Jersey 10";
+}
+
 
 .main {
   flex: 1;

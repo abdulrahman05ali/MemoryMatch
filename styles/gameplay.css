@@ -14,35 +14,25 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 2%;
   justify-content: center;
   align-items: center;
 }
 
-.playButton {
-  width: 20%;
-  padding-bottom: 20px;
-  cursor: pointer;
-  animation: pulse 1.5s infinite;
-  transition: width 0.5s ease;
+.start-screen {
+  background-color: rgb(60, 58, 75); /* Slightly lighter shade of main theme */
+  border: 2px solid rgb(40, 39, 52); /* Darker border */
+  border-radius: 12px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  width: 300px;
 }
 
-@keyframes pulse {
-  0% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(1.1);
-  }
-  100% {
-      transform: scale(1);
-  }
-}
-
-@media (max-width: 700px ) {
-  .playButton {
-    width: 35%;
-  }
+.game-title {
+  font-size: clamp(60px, 6vw, 120px);
+  color: white;
+  text-shadow: 5px 5px rgb(40, 39, 52);
 }
 
 .visuals-2 {
@@ -54,40 +44,73 @@
   align-items: center;
 }
 
-.image-1 {
-  width: 70%;
-  margin: 0 auto;
-  padding-top: 50px;
+.visuals-2 div {
+  color: white;
+  font-size: clamp(20px, 2vw, 65px);
+  text-align: center;
+  text-wrap: wrap;
+  width: 90%;
+  margin: auto;
 }
 
+.instruction-screen p {
+  margin: 0px;
+}
 
-.visuals-2 img {
+.instruction-screen {
   width: 100%;
-  height: auto; 
-  padding-bottom: 20px;
-}
-
-.control-buttons {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 10%;
+  gap: 30px;
 }
 
-.control-buttons img {
-  width: 16%;
-  height: auto;
-  transition: width 0.5s ease;
+.button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 5%;
+}
+
+.back, .newplay, .playButton, .game-button {
+  height: auto; 
+  padding: 0.1em 1em; 
+  font-size: 2rem; 
+  background-color: #5a5a8e;
+  color: white;
+  border: none;
+  border-radius: 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-sizing: border-box;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  max-width: 100%; 
+  transition: font-size 0.5s ease, padding 0.5s ease; 
 }
 
-@media (max-width: 700px ) {
-  .control-buttons img {
-    width: 22%;
+@media (max-width: 1200px) {
+  .back, .newplay, .playButton {
+    font-size: 1.7rem; 
+    padding: 0.15em 0.8em; 
+  }
+  .save-score {
+    padding: 0.1em 0.3em;
   }
 }
 
+@media (max-width: 480px) {
+  .back, .newplay, .playButton {
+    font-size: 1.35rem; 
+    padding: 0.3em 0.8em; 
+  }
+}
+
+.back:hover, .newplay:hover, .playButton:hover, .game-button:hover {
+  background-color: #4a4a7e; 
+  transform: scale(1.05); 
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
 
 .visuals-3 {
   width: 100%;
@@ -247,26 +270,6 @@
 
 .input-score:focus {
   border-color: #5a5a8e;
-}
-
-.game-button {
-  height: 40px; 
-  padding: 0 20px; 
-  font-size: 16px;
-  background-color: #5a5a8e;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  box-sizing: border-box; 
-}
-
-.game-button:hover {
-  background-color: #4a4a7e; 
-  transform: scale(1.05); 
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .button-container {

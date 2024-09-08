@@ -10,14 +10,19 @@ function setOriginalPlay() {
     setTimeout(() => {
       content.innerHTML = 
       `<div class="visuals-2">
-        <div class="image-1">
-          <img src="https://fontmeme.com/permalink/240829/7ffe2442ba9c7f5068c27c90678296c5.png">
+        <div class="instruction-screen">
+          <p>Welcome to Memory Match! The aim of the game is simple:</p>
+          <div class="b">
+              <p>1. You have 5 seconds to memorise the position of each tile</p>
+              <p>2. Match all the pairs as quickly as possible</p>
+              <p>3. Get faster and to climb to the top of the leaderboard!</p>
+          </div>
+          <div class="button-container">
+            <button class="back">Back to Start</button>
+            <button class="newplay">Play Game</button>
+          </div>
         </div>
-        <div class="control-buttons">
-            <img class="back" src="images/backButton.png">
-            <img class="newplay" src="images/playbutton.png">
-        </div>
-      </div> `;
+      </div>`;
 
       content.classList.remove('hidden');
 
@@ -48,9 +53,10 @@ function setOriginalPlay() {
 
         setTimeout(() => {
           content.innerHTML = 
-          `<div class="visuals-1">
-            <img src="images/play.png" class="playButton"> 
-          </div>`;
+           `<div class="visuals-1">
+              <div class="game-title">Memory Match</div>
+              <div class="playButton">Start Game</div>
+            </div> `;
           
           content.classList.remove('hidden')
           setOriginalPlay();
@@ -196,7 +202,7 @@ function saveScore(timer3) {
       <div class="inner-visuals-5">
         <div class="time">Time: ${finalTime} seconds</div>
         <div class="input-button-container">
-          <input class="input-score" placeholder="Enter your name">
+          <input class="input-score" placeholder="name">
           <button class="game-button save-score">Save</button>
         </div>
         <div class="button-container">
@@ -211,7 +217,8 @@ function saveScore(timer3) {
       setTimeout(() => {
         content.innerHTML = 
         `<div class="visuals-1">
-          <img src="images/play.png" class="playButton"> 
+            <div class="game-title">Memory Match</div>
+            <div class="playButton">Start Game</div>
         </div>`;
         content.classList.remove('hidden');
         setOriginalPlay();
