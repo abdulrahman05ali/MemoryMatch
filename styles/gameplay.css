@@ -95,7 +95,10 @@
     padding: 0.15em 0.8em; 
   }
   .save-score {
-    padding: 0.1em 0.3em;
+    padding: 0.075em 0.3em;
+  }
+  .play-again {
+    padding: 0.05em 0.6em
   }
 }
 
