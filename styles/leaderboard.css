@@ -1,10 +1,5 @@
-.leaderboard {
-  display: flex;
-  flex-direction: column;
-}
-
 .title {
-  height: 8%;
+  height: 7%;
   background-color: rgb(70, 70, 100);
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -16,12 +11,34 @@
   justify-content: center;
   height: 100%; 
   color: white;
-  font-size: clamp(32px, 2vw, 38px)
+  font-size: clamp(35px, 2vw, 42px)
 }
 
 .ranking {
-  flex: 1;
-  background-color: rgb(80, 80, 109);
+  flex: 0 1 auto;
+  max-height: 100%; 
   border-bottom-left-radius: 16px;
   border-bottom-right-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none; 
+}
+
+.ranking::-webkit-scrollbar {
+  display: none; 
+} 
+
+.rank {
+display: flex;
+flex-direction: row;
+gap: 10px;
+color: white;
+font-size:clamp(32px, 1vw, 35px) ;
+padding: 0px 3px;
+}
+
+.name {
+  flex: 1;
 }

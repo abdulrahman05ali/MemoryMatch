@@ -19,10 +19,14 @@
 }
 
 .leaderboard {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(80, 80, 109);
   border: 2px solid rgb(50,49,63);
   border-radius: 20px;
   flex: 1;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
+  aspect-ratio: 5 / 1;
 }
 
 @media (max-width: 1500px) {
