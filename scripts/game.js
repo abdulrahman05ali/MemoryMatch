@@ -15,7 +15,7 @@ function setOriginalPlay() {
           <div class="b">
               <p>1. You have 5 seconds to memorise the position of each tile</p>
               <p>2. Match all the pairs as quickly as possible</p>
-              <p>3. Get faster and to climb to the top of the leaderboard!</p>
+              <p>3. Get faster and climb to the top of the leaderboard!</p>
           </div>
           <div class="button-container">
             <button class="back">Back to Start</button>
