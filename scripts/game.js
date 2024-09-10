@@ -1,4 +1,5 @@
 import { icons } from "./icons.js";
+import { getDatabase, ref, push} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 
 const content = document.querySelector('.gameplay-contents');
 
@@ -202,7 +203,7 @@ function saveScore(timer3) {
       <div class="inner-visuals-5">
         <div class="time">Time: ${finalTime} seconds</div>
         <div class="input-button-container">
-          <input class="input-score" placeholder="name">
+          <input class="input-name" placeholder="name">
           <button class="game-button save-score">Save</button>
         </div>
         <div class="button-container">
@@ -210,6 +211,29 @@ function saveScore(timer3) {
         </div>
       </div>
     </div>`;
+
+    const saveButton = document.querySelector('.save-score');
+    const userInput = document.querySelector('.input-name');
+    saveButton.addEventListener('click', () => {
+      const db = getDatabase();
+      const newScoreRef = ref(db, 'scores');
+
+      push(newScoreRef, 
+        {username: userInput.value ,
+          score: finalTime
+        });
+        content.classList.add('hidden');
+        setTimeout(() => {
+          content.innerHTML = 
+          `<div class="visuals-1">
+              <div class="game-title">Memory Match</div>
+              <div class="playButton">Start Game</div>
+          </div>`;
+          content.classList.remove('hidden');
+          setOriginalPlay();
+        }, 400);
+    }) 
+
 
     const playAgain = document.querySelector('.play-again');
     playAgain.addEventListener('click', () => {

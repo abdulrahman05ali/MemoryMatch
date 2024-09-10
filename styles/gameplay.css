@@ -259,7 +259,7 @@
   margin-bottom: 15px;
 }
 
-.input-score {
+.input-name {
   width: 60%; 
   padding: 10px;
   font-size: 16px;
@@ -271,7 +271,7 @@
   transition: border-color 0.3s ease;
 }
 
-.input-score:focus {
+.input-name:focus {
   border-color: #5a5a8e;
 }
 
