@@ -204,7 +204,7 @@ function saveScore(timer3) {
       <div class="inner-visuals-5">
         <div class="time">Time: ${finalTime} seconds</div>
         <div class="input-button-container">
-          <input class="input-name" placeholder="name">
+          <input class="input-name" maxlength="15" placeholder="name">
           <button class="game-button save-score">Save</button>
         </div>
         <div class="button-container">
