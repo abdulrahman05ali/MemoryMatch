@@ -1,4 +1,5 @@
 import { setOriginalPlay } from './game.js';
+import { renderScore } from './savescore.js';
 
 let isClicked = false; 
 
@@ -15,3 +16,4 @@ moreButton.addEventListener('click',() => {
 })
 
 setOriginalPlay();
+renderScore();

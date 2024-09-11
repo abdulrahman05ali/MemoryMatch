@@ -1,5 +1,6 @@
 import { icons } from "./icons.js";
 import { getDatabase, ref, push} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+import { renderScore } from "./savescore.js"
 
 const content = document.querySelector('.gameplay-contents');
 
@@ -216,12 +217,13 @@ function saveScore(timer3) {
     const userInput = document.querySelector('.input-name');
     saveButton.addEventListener('click', () => {
       const db = getDatabase();
-      const newScoreRef = ref(db, 'scores');
+      const ScoreRef = ref(db, 'scores');
 
-      push(newScoreRef, 
+      push(ScoreRef, 
         {username: userInput.value ,
           score: finalTime
         });
+        renderScore();
         content.classList.add('hidden');
         setTimeout(() => {
           content.innerHTML = 
