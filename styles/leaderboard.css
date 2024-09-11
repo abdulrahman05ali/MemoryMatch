@@ -17,13 +17,24 @@
 .ranking {
   flex: 0 1 auto;
   max-height: 100%; 
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  /* border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px; */
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
   scrollbar-width: none;
   -ms-overflow-style: none; 
+  background-image: 
+  linear-gradient(0deg, 
+    rgb(80, 80, 109) 25%, 
+    rgb(90, 90, 119) 25%, 
+    rgb(90, 90, 119) 50%, 
+    rgb(80, 80, 109) 50%, 
+    rgb(80, 80, 109) 75%, 
+    rgb(90, 90, 119) 75%, 
+    rgb(90, 90, 119)100%
+  );
+background-size: 139px 139px;
 }
 
 .ranking::-webkit-scrollbar {

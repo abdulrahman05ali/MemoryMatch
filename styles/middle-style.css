@@ -21,7 +21,7 @@
 .leaderboard {
   display: flex;
   flex-direction: column;
-  background-color: rgb(80, 80, 109);
+  background-color: rgb(80, 80, 109); 
   border: 2px solid rgb(50,49,63);
   border-radius: 20px;
   flex: 1;
