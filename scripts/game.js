@@ -6,7 +6,6 @@ const content = document.querySelector('.gameplay-contents');
 
 function setOriginalPlay() {
   const playButton = document.querySelector('.playButton');
-  playButton.addEventListener('click', incrementGamesPlayed);
   playButton.addEventListener('click',() => {
     content.classList.add('hidden');
     
@@ -30,6 +29,7 @@ function setOriginalPlay() {
       content.classList.remove('hidden');
 
       const newPlay = document.querySelector('.newplay');
+      newPlay.addEventListener('click', incrementGamesPlayed);
       newPlay.addEventListener('click', () => {
         let timer = 3
         let intervalId;
