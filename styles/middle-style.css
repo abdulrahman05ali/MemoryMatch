@@ -36,7 +36,7 @@
   aspect-ratio: 2 / 1;
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 1650px) {
   .middle {
     flex-direction: column;
   }

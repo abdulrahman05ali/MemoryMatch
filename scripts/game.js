@@ -126,17 +126,19 @@ function gameMechanic() {
   let timer3 = 0;
   let timerInterval3;
   const top = document.querySelector('.flex-container');
+  const startTime = performance.now();
 
   timerInterval3 = setInterval(() => {
-    timer3 += 10;
-    const seconds = (timer3/1000).toFixed(2);
+    const currentTime = performance.now();
+    timer3 = Math.floor(currentTime - startTime);
+    const seconds = (timer3 / 1000).toFixed(2);
     top.innerHTML = `time: ${seconds}`;
 
-   if (Math.abs(seconds - 60.01) < 0.01) {
-    clearInterval(timerInterval3);
-    saveScore(timer3)
-   }
-  },10);
+    if (Math.abs(seconds - 60.01) < 0.01) {
+      clearInterval(timerInterval3);
+      saveScore(timer3);
+    }
+  }, 10);
   let score = 0;
 
   const iconimg = document.querySelectorAll('.iconimage');
