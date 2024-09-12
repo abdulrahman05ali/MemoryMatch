@@ -204,7 +204,7 @@ function saveScore(timer3) {
       <div class="inner-visuals-5">
         <div class="time">Time: ${finalTime} seconds</div>
         <div class="input-button-container">
-          <input class="input-name" maxlength="15" placeholder="name">
+          <input class="input-name" maxlength="14" placeholder="name">
           <button class="game-button save-score">Save</button>
         </div>
         <div class="button-container">
@@ -219,21 +219,30 @@ function saveScore(timer3) {
       const db = getDatabase();
       const ScoreRef = ref(db, 'scores');
 
-      push(ScoreRef, 
-        {username: userInput.value ,
-          score: finalTime
-        });
-        renderScore();
-        content.classList.add('hidden');
-        setTimeout(() => {
-          content.innerHTML = 
-          `<div class="visuals-1">
-              <div class="game-title">Memory Match</div>
-              <div class="playButton">Start Game</div>
-          </div>`;
-          content.classList.remove('hidden');
-          setOriginalPlay();
-        }, 400);
+      if (userInput.value) {
+        push(ScoreRef, 
+          {username: userInput.value ,
+            score: finalTime
+          })
+          .then (() => {
+            renderScore();
+            content.classList.add('hidden');
+            setTimeout(() => {
+              content.innerHTML = 
+              `<div class="visuals-1">
+                  <div class="game-title">Memory Match</div>
+                  <div class="playButton">Start Game</div>
+              </div>`;
+              content.classList.remove('hidden');
+              setOriginalPlay();
+            }, 400)
+          })
+          .catch((error) => {
+            console.error("Error saving data: ", error);
+          });
+      } else {
+        return;
+      }
     }) 
 
 
