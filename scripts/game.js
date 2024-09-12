@@ -1,11 +1,12 @@
 import { icons } from "./icons.js";
-import { getDatabase, ref, push} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
+import { getDatabase, ref, push, runTransaction} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
 import { renderScore } from "./savescore.js"
 
 const content = document.querySelector('.gameplay-contents');
 
 function setOriginalPlay() {
   const playButton = document.querySelector('.playButton');
+  playButton.addEventListener('click', incrementGamesPlayed);
   playButton.addEventListener('click',() => {
     content.classList.add('hidden');
     
@@ -264,4 +265,19 @@ function saveScore(timer3) {
 
       content.classList.remove('hidden');
   },400)
+}
+
+function incrementGamesPlayed() {
+  const db = getDatabase();
+  const gamesPlayedRef = ref(db, 'gamesPlayed');
+
+  runTransaction(gamesPlayedRef, (currentValue) => {
+    if (currentValue === null) {
+      return 1; 
+    } else {
+      return currentValue + 1; 
+    }
+  }).catch((error) => {
+    console.error('Error updating games played counter:', error);
+  });
 }
