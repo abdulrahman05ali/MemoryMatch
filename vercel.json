@@ -1,8 +1,8 @@
 {
   "redirects": [
     {
-      "source": "/blog",
-      "destination": "/blog.html",
+      "source": "/blog.html",
+      "destination": "/blog",
       "permanent": true
     }
   ]
