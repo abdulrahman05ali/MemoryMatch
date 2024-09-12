@@ -33,7 +33,7 @@
   border-radius: 20px;
   flex: 1;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
-  aspect-ratio: 1.9 / 1;
+  aspect-ratio: 2 / 1;
 }
 
 @media (max-width: 1500px) {
@@ -43,6 +43,7 @@
   .leaderboard {
     flex: 0 1 auto;
     height: 500px;
+    width: 100%;
   }
 }
 
@@ -62,4 +63,5 @@
     flex: 0 1 auto;
   }
 }
+
 
