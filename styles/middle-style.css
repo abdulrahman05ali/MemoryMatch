@@ -33,7 +33,7 @@
   border-radius: 20px;
   flex: 1;
   box-shadow: 10px 10px 10px rgba(0,0,0,0.3);
-  aspect-ratio: 5 / 1;
+  aspect-ratio: 1.9 / 1;
 }
 
 @media (max-width: 1500px) {
