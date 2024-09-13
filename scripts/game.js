@@ -31,23 +31,7 @@ function setOriginalPlay() {
       const newPlay = document.querySelector('.newplay');
       newPlay.addEventListener('click', incrementGamesPlayed);
       newPlay.addEventListener('click', () => {
-        let timer = 3
-        let intervalId;
-
-        content.innerHTML = `<div class="visuals-3">${timer}</div>`;
-        
-
-       intervalId = setInterval(() => {
-        timer--;
-        content.innerHTML =
-        `<div class="visuals-3">${timer}</div>`
-        
-
-        if (timer === 0) {
-          clearInterval(intervalId)
-          memoriseSection(); 
-        }
-       },1000)
+        intoGame();
       })
 
       const backButton = document.querySelector('.back');
@@ -180,7 +164,12 @@ function gameMechanic() {
   }
 
   icontile.forEach((tile, index) => {
-    tile.addEventListener('click', () => {
+    tile.addEventListener('click', (event) => {
+      if (!isClickGenuine(event, tile)) {
+        console.log("Suspicious click detected!");
+        return;
+      }
+
       if (tile.classList.contains('matched') || clickedTiles.some(item => item.tile === tile)) {
         return;
       }
@@ -195,6 +184,19 @@ function gameMechanic() {
       processingTimeout = setTimeout(processMatches, 250);
     });
   });
+}
+
+function isClickGenuine(event, tile) {
+  const rect = tile.getBoundingClientRect();
+  const clickX = event.clientX;
+  const clickY = event.clientY;
+
+  return (
+    clickX >= rect.left &&
+    clickX <= rect.right &&
+    clickY >= rect.top &&
+    clickY <= rect.bottom
+  );
 }
 
 function saveScore(timer3) {
@@ -250,16 +252,12 @@ function saveScore(timer3) {
 
 
     const playAgain = document.querySelector('.play-again');
+    playAgain.addEventListener('click', incrementGamesPlayed);
     playAgain.addEventListener('click', () => {
       content.classList.add('hidden');
       setTimeout(() => {
-        content.innerHTML = 
-        `<div class="visuals-1">
-            <div class="game-title">Memory Match</div>
-            <div class="playButton">Start Game</div>
-        </div>`;
+        intoGame();
         content.classList.remove('hidden');
-        setOriginalPlay();
       }, 400);
   })
 
@@ -280,4 +278,24 @@ function incrementGamesPlayed() {
   }).catch((error) => {
     console.error('Error updating games played counter:', error);
   });
+}
+
+function intoGame() {
+  let timer = 3
+  let intervalId;
+
+  content.innerHTML = `<div class="visuals-3">${timer}</div>`;
+  
+
+ intervalId = setInterval(() => {
+  timer--;
+  content.innerHTML =
+  `<div class="visuals-3">${timer}</div>`
+  
+
+  if (timer === 0) {
+    clearInterval(intervalId)
+    memoriseSection(); 
+  }
+ },1000)
 }
