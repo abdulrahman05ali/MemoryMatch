@@ -100,6 +100,9 @@
   .play-again {
     padding: 0.05em 0.6em
   }
+  .home-button {
+    padding: 0.05em 0.3em;
+  }
 }
 
 @media (max-width: 480px) {
@@ -283,9 +286,4 @@
   padding-bottom: 20px;
 }
 
-.play-again {
-  display: block; 
-  width: auto; 
-  margin: 0 auto;
-}
 
