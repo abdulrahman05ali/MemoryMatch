@@ -205,18 +205,19 @@ function saveScore(timer3) {
 
   setTimeout(()=> {
     content.innerHTML = 
-    `<div class="visuals-5">
-      <div class="inner-visuals-5">
-        <div class="time">Time: ${finalTime} seconds</div>
-        <div class="input-button-container">
-          <input class="input-name" maxlength="14" placeholder="name">
-          <button class="game-button save-score">Save</button>
+    ` <div class="visuals-5">
+        <div class="inner-visuals-5">
+          <div class="time">Time: ${finalTime} seconds</div>
+          <div class="input-button-container">
+            <input class="input-name" maxlength="14" placeholder="name">
+            <button class="game-button save-score">Save</button>
+          </div>
+          <div class="button-container">
+            <button class="game-button home-button">Home</button>
+            <button class="game-button play-again">Play Again</button>
+          </div>
         </div>
-        <div class="button-container">
-          <button class="game-button play-again">Play Again</button>
-        </div>
-      </div>
-    </div>`;
+      </div>`;
 
     const saveButton = document.querySelector('.save-score');
     const userInput = document.querySelector('.input-name');
@@ -249,6 +250,22 @@ function saveScore(timer3) {
         return;
       }
     }) 
+
+    const home = document.querySelector('.home-button');
+    home.addEventListener('click',() => {
+      content.classList.add('hidden');
+  
+      setTimeout(() => {
+        content.innerHTML = 
+         `<div class="visuals-1">
+            <div class="game-title">Memory Match</div>
+            <div class="playButton">Start Game</div>
+          </div> `;
+        
+        content.classList.remove('hidden')
+        setOriginalPlay();
+      },400)
+    })
 
 
     const playAgain = document.querySelector('.play-again');
