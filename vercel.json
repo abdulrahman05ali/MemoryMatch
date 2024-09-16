@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "destination": "https://memorymatch.co/$1",
+      "permanent": true
+    }
+  ]
+}
