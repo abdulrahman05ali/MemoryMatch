@@ -239,7 +239,7 @@ function saveScore(timer3) {
             }, 400);
           })
           .catch((error) => {
-            alert(`Error saving score: ${error}`);
+            alert(`Saving Score and Leaderboard Temporarily Disabled, Seems like someone has already tried BREAKING MY GAME!`);
           });
       }
     });
