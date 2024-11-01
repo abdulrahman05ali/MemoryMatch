@@ -1,6 +1,6 @@
 import { icons } from "./icons.js";
 import { getDatabase, ref, push, runTransaction} from "https://www.gstatic.com/firebasejs/10.13.1/firebase-database.js";
-import { renderScore } from "./savescore.js"
+import { renderScore, saveNewScore } from './savescore.js';
 
 const content = document.querySelector('.gameplay-contents');
 
@@ -203,7 +203,7 @@ function saveScore(timer3) {
   const finalTime = (timer3/1000).toFixed(2);
   content.classList.add('hidden');
 
-  setTimeout(()=> {
+  setTimeout(() => {
     content.innerHTML = 
     ` <div class="visuals-5">
         <div class="inner-visuals-5">
@@ -221,16 +221,11 @@ function saveScore(timer3) {
 
     const saveButton = document.querySelector('.save-score');
     const userInput = document.querySelector('.input-name');
+    
     saveButton.addEventListener('click', () => {
-      const db = getDatabase();
-      const ScoreRef = ref(db, 'scores');
-
       if (userInput.value) {
-        push(ScoreRef, 
-          {username: userInput.value ,
-            score: finalTime
-          })
-          .then (() => {
+        saveNewScore(userInput.value, finalTime)
+          .then(() => {
             renderScore();
             content.classList.add('hidden');
             setTimeout(() => {
@@ -241,15 +236,13 @@ function saveScore(timer3) {
               </div>`;
               content.classList.remove('hidden');
               setOriginalPlay();
-            }, 400)
+            }, 400);
           })
           .catch((error) => {
-            console.error("Error saving data: ", error);
+            alert(`Error saving score: ${error}`);
           });
-      } else {
-        return;
       }
-    }) 
+    });
 
     const home = document.querySelector('.home-button');
     home.addEventListener('click',() => {
