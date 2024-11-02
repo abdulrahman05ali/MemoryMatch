@@ -208,10 +208,10 @@ function saveScore(timer3) {
     ` <div class="visuals-5">
         <div class="inner-visuals-5">
           <div class="time">Time: ${finalTime} seconds</div>
-          <div class="input-button-container">
+      <!-- <div class="input-button-container">
             <input class="input-name" maxlength="14" placeholder="name">
             <button class="game-button save-score">Save</button>
-          </div>
+          </div> --> 
           <div class="button-container">
             <button class="game-button home-button">Home</button>
             <button class="game-button play-again">Play Again</button>
@@ -219,7 +219,7 @@ function saveScore(timer3) {
         </div>
       </div>`;
 
-    const saveButton = document.querySelector('.save-score');
+/*  const saveButton = document.querySelector('.save-score');
     const userInput = document.querySelector('.input-name');
     
     saveButton.addEventListener('click', () => {
@@ -242,7 +242,7 @@ function saveScore(timer3) {
             alert(`Saving Score Temporarily Disabled, Please Try Again Later ...`);
           });
       }
-    });
+    }); */
 
     const home = document.querySelector('.home-button');
     home.addEventListener('click',() => {
